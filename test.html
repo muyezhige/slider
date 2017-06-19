@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="slider">
+	<title>slider</title>
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			background: #999;
+			margin: 0px;
+			padding: 0px;
+		}
+		ul, li{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		header {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 50px;
+			background-color: #000;
+			z-index: 100;
+		}
+		header ul{
+			display: flex;
+			display: -webkit-flex;
+		}
+		header ul li{
+			flex: 1;
+			-webkit-flex:1;
+			color: #fff;
+			text-align: center;
+			line-height: 50px;
+			font-size: 14px;
+			cursor: pointer;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+		}
+		header ul li.cur{
+			color: #FF53A0;
+		}
+		.line{
+			position: absolute;
+			border-bottom: 3px solid #FF53A0;
+			display: block;
+			bottom: 10px;
+		}
+		.transition {
+			transition: transform 0.2s ease-out;
+			-webkit-transition: -webkit-transform 0.2s ease-out;
+		}
+		#container{
+			background-color: #555;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.sliderBox .j_page{
+			position: absolute;  /*设置绝对定位，才能保证滑动区块在同一行显示*/
+			width: 100%;
+			min-height: 400px;
+			background-color: #222;
+			color: #ccc;
+			display: -webkit-box;
+			-webkit-box-pack: center;
+			-webkit-box-align: center;
+			font-size: 80px;
+			font-style: italic;
+
+		}
+		#container .j_page:nth-of-type(1){
+			z-index: 10;
+		}
+		.loading{
+			display: block;
+			width: 25px;
+			margin: 15px auto;
+		}
+		.j_slider{
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+		}
+	</style>
+</head>
+<body>
+<section id="container">
+	<header>
+		<ul class="j_tablist">
+			<li class="j_tab cur">粉丝贡献</li>
+			<li class="j_tab">粉丝阳光</li>
+			<li class="j_tab">粉丝分享</li>
+			<li class="j_tab">粉丝时长</li>
+		</ul>
+		<em class="line j_line transition"></em>
+	</header>
+	<div class="j_slider js_down_pull rank-list">
+		<img src="http://static.huajiao.com/huajiao/website/rank/img/IMG-loading-6b3ec29282.jpg" class="loading">
+		<section class="sliderBox">
+			<div class="j_page">1</div>
+			<div class="j_page">2</div>
+			<div class="j_page">3</div>
+			<div class="j_page">4</div>
+		</section>
+	</div>
+</section>
+<script type="text/javascript" src="//s4.ssl.qhres.com/!360cd23b/zepto.js"></script>
+<script type="text/javascript" src='/static/js/guardrank/index.js'></script>
+</body>
+</html>
